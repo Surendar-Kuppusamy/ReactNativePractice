@@ -10,6 +10,13 @@ export type RootStackParamList = {
     Tabs: undefined;
     Drawer: undefined;
     Drag: undefined;
+    Welcome: undefined;
+    Experiment: undefined;
+    ExperimentTwo: undefined;
+    Register: undefined;
+    ProductList: undefined;
+    Signup: { email: string, name: string };
+    Form: undefined;
 }
 
 export type TabParamList = {
@@ -22,6 +29,8 @@ export type DrawerParamList = {
     Gallery: undefined;
 };
 
+export type SignupProps = NativeStackScreenProps<RootStackParamList, 'Signup'>
+
 export type Props = NativeStackScreenProps<RootStackParamList, 'Home', 'Users'>
 
 export type AProps = NativeStackScreenProps<RootStackParamList, 'About', 'MyStack'>
@@ -32,3 +41,7 @@ export type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>
 
 export type TabsProps = NativeStackScreenProps<RootStackParamList, 'Tabs'>
 
+
+
+
+export type OptionDataType = { label: string; value: string } | { name: string; no: string };

@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity } from 'reac
 import { useNavigation, TabNavigationState  } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-
 import { DrawerParamList } from '@root/src/Types/DefaultTypes';
 
 import FileUploadScreen from '@root/src/Screens/Drawer/FileUploadScreen';

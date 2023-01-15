@@ -1,6 +1,6 @@
 import React, { useMemo, useState, FC } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, SafeAreaView, FlatList, TextInput, NativeSyntheticEvent, TextInputChangeEventData, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView, FlatList, TextInput, NativeSyntheticEvent, TextInputChangeEventData, TouchableOpacity, Alert, Modal, Pressable } from 'react-native';
 import type { LoginProps } from '@root/src/Types/DefaultTypes';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 
@@ -10,6 +10,7 @@ function LoginScreen(props: LoginProps) {
     const navigation = useNavigation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
 
     const changeEvent = (e: NativeSyntheticEvent<TextInputChangeEventData>):void => {
         /* console.log(e.nativeEvent.target);
@@ -20,6 +21,24 @@ function LoginScreen(props: LoginProps) {
     const submitForm = (): void => {
         /* console.log('Email', email);
         console.log('Password', password); */
+
+        Alert.alert('Title','Move to home', [
+                {
+                    text: 'cancel',
+                    onPress: () => Alert.alert("Cancel Pressed")
+                },
+                {
+                    text: 'open',
+                    onPress: () => setModalVisible(true)
+                }
+            ],
+            {
+                cancelable: true,
+                onDismiss: () => Alert.alert("Alert was dismmissed clicking outside")
+            }
+        );
+        
+
         navigation.dispatch(
             CommonActions.navigate({
                 name: "Home"
@@ -64,6 +83,39 @@ function LoginScreen(props: LoginProps) {
                     Sign in
                 </Text>
             </TouchableOpacity>
+            <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+            >
+                <Text>
+                    Modal
+                </Text>
+            </Pressable>
+        </View>
+
+        
+        <View>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                Alert.alert("Modal has been closed.");
+                setModalVisible(!modalVisible);
+                }}
+            >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={styles.modalText}>Hello World!</Text>
+                <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+                >
+                <Text style={styles.textStyle}>Hide Modal</Text>
+                </Pressable>
+            </View>
+            </View>
+            </Modal>
         </View>
       </SafeAreaView>
     );
@@ -88,7 +140,48 @@ const styles = StyleSheet.create({
         padding: 5,
         backgroundColor: '#f4511e',
         tintColor: '#FFF'
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+      },
+      modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+      },
+      button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+      },
+      buttonOpen: {
+        backgroundColor: "#F194FF",
+      },
+      buttonClose: {
+        backgroundColor: "#2196F3",
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center"
+      }
 })
 
 export default LoginScreen;
