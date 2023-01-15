@@ -1,0 +1,158 @@
+React Native:
+-------------
+
+*) First setup everything for react native.[https://reactnative.dev/docs/environment-setup]
+*) Install node js and Java SE development Kit(JDK)[openjdk11].
+*) Download, install android and also follow the instruction on the react native setup guide.[Follow the instruction and check various properties on android]
+
+
+*) Create virtual device on android.
+*) Start project, by command "npm start"
+*) Next command "npm run android"
+
+Errors and Bugs:
+----------------
+*) When i use the mobile phone wifi network, then emulator shows error.
+*) For change port use command "npm start --port 8082"
+
+
+Project Folder:
+---------------
+D:\Apache\Apache24\htdocs\Server\React Native\PondyTolet
+
+Reference Links:
+----------------
+https://github.com/eramudeep/react-native-ecommerce
+
+React native with expo:
+-----------------------
+*) npm i -g expo-cli
+*) npx create-expo-app DemoApp.v
+*) Install router dependentices.
+*) npm install @react-navigation/native @react-navigation/native-stack
+*) npx expo install react-native-screens react-native-safe-area-context
+*) npx expo start
+*) https://docs.expo.dev/workflow/android-studio-emulator/
+*) npm i react-native-size-matters
+*) After set path on tsconfig file and run this npm install babel-plugin-module-resolver --save-dev
+*) npm install @react-navigation/bottom-tabs
+*) npm install @react-navigation/drawer
+*) npx expo install react-native-gesture-handler react-native-reanimated
+
+Expo installation:
+------------------
+npm install -g expo-cli
+expo init -t expo-cdc-example
+
+Native:
+-------
+*) npx react-native init DemoApp	--	Create Project
+
+For Typescript:
+----------------
+*) npx create-expo-app --template
+*) Above command ask you typescript option and App name.
+*) npx expo start or npx expo start --clear
+
+Sample Project:
+---------------
+https://github.com/amandeepmittal/react-native-examples/tree/main/react-navigation-v6-typescript
+
+Reference URL:
+--------------
+https://www.reactnativeschool.com/how-to-setup-path-alias-in-a-react-native-typescript-app
+https://blog.expo.dev/developing-react-native-with-expo-and-flipper-8c426bdf995a	--	For Drawer router error fix 
+https://github.com/eristoddle/log-rocket-react-native-dropdown-tutoria/blob/main/src/components/Dropdown.tsx	--	Dropdown
+
+
+Error:
+------
+
+ ERROR  Error: Failed to initialize react-native-reanimated library, make sure you followed installation steps here: https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/
+1) Make sure reanimated's babel plugin is installed in your babel.config.js (you should have 'react-native-reanimated/plugin' listed there - also see the above link for details)
+2) Make sure you reset build cache after updating the config, run: yarn start --reset-cache
+ ERROR  Invariant Violation: Failed to call into JavaScript module method AppRegistry.runApplication(). Module has not been registered as callable. Registered callable JavaScript modules (n = 11): Systrace, JSTimers, HeapCapture, SamplingProfiler, RCTLog, RCTDeviceEventEmitter, RCTNativeAppEventEmitter, GlobalPerformanceLogger, JSDevSupportModule, HMRClient, RCTEventEmitter.
+ A frequent cause of the error is that the application entry file path is incorrect. This can also happen when the JS bundle is corrupt or there is an early initialization error when loading React Native.
+ ERROR  Invariant Violation: Failed to call into JavaScript module method AppRegistry.runApplication(). Module has not been registered as callable. Registered callable JavaScript modules (n = 11): Systrace, JSTimers, HeapCapture, SamplingProfiler, RCTLog, RCTDeviceEventEmitter, RCTNativeAppEventEmitter, GlobalPerformanceLogger, JSDevSupportModule, HMRClient, RCTEventEmitter.
+ A frequent cause of the error is that the application entry file path is incorrect. This can also happen when the JS bundle is corrupt or there is an early initialization error when loading React Native.
+ 
+ 
+ Expo with Fliper(EAS):
+ ----------------------
+ 
+ *) If error comes continely, please clear cache by, npx expo start --clear
+ 
+ Reference Link:
+ ---------------
+ https://blog.expo.dev/developing-react-native-with-expo-and-flipper-8c426bdf995a
+ 
+ *) npm install -g expo-cli		--	Install expo cli
+ *) expo init -t expo-cdc-example			--	In which -t represents for typescript.	Alternate for it npx create-expo-app --template
+ *) You can use EAS for building non-expo applications as well, so the EAS cli isn’t bundled with Expo. We’ll need to install it globally like we did with our expo-cli.
+ *) npm install -g eas-cli
+ *) Create eas.json file manually or else execute command "eas build".
+ *) Install flipper, expo install react-native-flipper react-devtools-core
+ *) npm install expo-community-flipper
+ *) Edit app.json file 
+ {
+  "expo": {
+    // ...
+    "plugins": ["expo-community-flipper"]
+}
+*) Modify App.tsx file with this
+// App.tsx
+import { connectToDevTools } from "react-devtools-core";if (__DEV__) {
+  connectToDevTools({
+    host: "localhost",
+    port: 8097,
+  });
+}
+*) npm install @react-navigation/native @react-navigation/native-stack
+*) npm i react-native-size-matters
+*) After set path on tsconfig file and run this,
+npm install babel-plugin-module-resolver --save-dev
+*) npm install @react-navigation/bottom-tabs
+*) npm install @react-navigation/drawer
+*) npm install react-native-gesture-handler
+*) npx expo install react-native-reanimated@~2.12.0
+*) npm install @types/react
+*) npm install validator
+*) npm install async
+*) npm install @reduxjs/toolkit react-redux
+
+
+Typescript Native Project:
+--------------------------
+*) npx react-native init NativeApp --template react-native-template-typescript
+
+Demo Project:
+--------------
+*) npm i -g expo-cli	--	Already installed, because its global
+*) npx create-expo-app --template
+*) npm install -g eas-cli	--	Already installed, because its global
+*) expo install react-native-flipper react-devtools-core
+*) npm install expo-community-flipper
+*) Edit app.json file 
+{
+  "expo": {
+    // ...
+    "plugins": ["expo-community-flipper"]
+}
+*) Modify App.tsx file with this
+
+
+Figma Reference:
+----------------
+https://www.figma.com/file/sYV9sg9wLSKEQ9CC1aytt1/Mobile-UI-kit-(Community)?t=FhxGZUwpmnnPHwla-0
+https://www.figma.com/file/FnV0J6jevIBF8KgEg2TQj1/Mobile-UI-kit-for-Figma-(Copy)?node-id=30139%3A0&t=BH0SErbUHVB5iJjv-0
+https://www.figma.com/file/ogn7izXiP4R6T3Zllrk51z/Ecommerce-App-UI-Kit-(Community)?node-id=0%3A1&t=1AGF3WFNswH1aKI7-0
+https://www.figma.com/file/ntU53b7cr88BWAjNZPKcjL/E-Commerce---Mobile-Apps-(Community)?node-id=5%3A1620&t=BxxlFsW1reEanJGt-0
+https://www.figma.com/file/N1fxHDX4ZYY2O5ckuR9xo2/Ecommerce-Mobile-App-UI-kit-(Community)?node-id=244%3A2&t=ZDASgdPMtwrZvBeN-0	----	Better
+https://www.figma.com/file/uuAWa6rc6ysmGsWdtE8nyK/Mobile-UI-Kit%3A-Ecommerce-(Community)?node-id=12%3A0&t=dbvXDLc4bfpeIXld-0
+https://www.figma.com/file/Vdry9eboy9CrH18yGUTgLN/STStore-(Ecommerce-Store-mobile-design-%2B-UI-KIT)-(Community)?node-id=0%3A1&t=D78rWaq9Q6SSUVRp-0	--	Better
+https://www.figma.com/file/1lOcUqkGV7FJ0wNmRAOkEQ/E-Commerce-App-Design-(Community)?node-id=3%3A2&t=0YkcoJet6Zbuf4tL-0
+
+
+Reference Links:
+----------------
+https://aboutreact.com/example-to-remove-textinput-underline-in-react-native/	--	Validation
